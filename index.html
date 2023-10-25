@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<style type="text/css">
+		.title{
+			width:1000px;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">SkinnedMesh	Emiter</div>
+	<div class="subtitle">WebGL Particles<div class="info">Done with three.js</div></div>
+	<script type="module">
+		import * as THREE from './libs/build/three.module.js'
+		import App from './src/App.js';
+
+		const title = document.querySelector('.title');
+		const subtitle = document.querySelector('.subtitle');
+
+		const app = App({
+			url: './models/max_walk_low.glb',
+			texture: './textures/a0687b261f6d82e1257da5a6.jpg',
+			baseGeometry: new THREE.TetrahedronBufferGeometry(0.15),
+			pw: 128,
+		});
+
+		const init = async() => {
+			await app.init();
+			app.start();
+			title.classList.add('show')
+			subtitle.classList.add('show')
+
+		};
+
+		init();
+	</script>
+</body>
+</html>
